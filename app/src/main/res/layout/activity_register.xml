@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.register">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/newlinesiwith4colors"
+        tools:ignore="UnknownId"></ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="45dp"
+
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_arrow_back_ios_24"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Regresar"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:onClick="OpenLoginPage"
+                ></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+
+        app:optRoundCardLeftTopCorner="true"
+        app:optRoundCardRightTopCorner="true"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false"
+        app:optRoundCardCornerRadius="30dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="80dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crear\ncuenta"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="30dp"></TextView>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:hint="Nombre"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="#696969"
+                    android:textColor="#393939"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:drawableEnd="@drawable/ic_userfinal"
+                    android:drawableTint="#696969"
+
+                    ></EditText>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="50dp"
+                    ></RelativeLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:hint="E-mail"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="#696969"
+                    android:textColor="#393939"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="30dp"
+                    android:drawableEnd="@drawable/ic_email"
+                    android:drawableTint="#696969"
+                    android:layout_marginEnd="30dp"
+                    ></EditText>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="50dp"
+                    ></RelativeLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:hint="Password"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="#696969"
+                    android:textColor="#393939"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="30dp"
+                    android:drawableEnd="@drawable/ic_key"
+                    android:drawableTint="#696969"
+                    android:layout_marginEnd="30dp"
+                    ></EditText>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="50dp"
+                    ></RelativeLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Registrarse"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/button_signup_account"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="80dp"
+                    ></Button>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

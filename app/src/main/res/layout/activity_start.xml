@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.start">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/newlinesiwith4colors"
+        tools:ignore="UnknownId"></ImageView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="45dp"
+
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/contenedorRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:focusable="true"
+            tools:ignore="InvalidId">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_arrow_back_ios_24"></ImageView>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Regresar"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:optRoundCardBackgroundColor="#5B6E7C"
+        app:optRoundCardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="16dp"
+
+        app:optRoundCardLeftTopCorner="true"
+        app:optRoundCardRightTopCorner="true"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false"
+        app:optRoundCardCornerRadius="30dp"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center_vertical"
+
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#E6E6FF"
+                    android:textAlignment="center"
+                    android:text="Bienvenido"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    ></TextView>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:hint="Username"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/primaryTextColor"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    ></EditText>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/primaryTextColor"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    ></RelativeLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:hint="Password"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/primaryTextColor"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+
+                    ></EditText>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/primaryTextColor"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    ></RelativeLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Ingresar"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_login_background"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    ></Button>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:elevation="0dp"
+                    android:text="Another account"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/button_another_account_background"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    ></Button>
+                <com.github.captain_miao.optroundcardview.OptRoundCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    app:optRoundCardLeftTopCorner="true"
+                    app:optRoundCardRightTopCorner="true"
+                    app:optRoundCardLeftBottomCorner="false"
+                    app:optRoundCardRightBottomCorner="false"
+                    app:optRoundCardCornerRadius="30dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:focusable="true"
+                            android:padding="15dp"
+                            android:text="Registrar"
+                            android:textColor="@color/black"
+                            android:textSize="25dp"
+                            android:textStyle="bold"
+                            android:onClick="OpenSignupPage"
+                            ></TextView>
+                    </LinearLayout>
+
+                </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+    </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:elevation="0dp"
+        android:src="@drawable/profile128"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        ></de.hdodenhof.circleimageview.CircleImageView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
