@@ -1,0 +1,1 @@
+Proyecto de Balones de Oxigenos basado en encontrar tiendas en donde se pueda encontrar informacion mas centralizada en una app y mas accesible y rapido para cualquier persona.
