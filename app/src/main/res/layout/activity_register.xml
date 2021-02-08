@@ -85,6 +85,7 @@
                     android:layout_marginStart="30dp"></TextView>
 
                 <EditText
+                    android:id="@+id/loginNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
@@ -92,7 +93,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="30dp"
                     android:textColorHint="#696969"
-                    android:textColor="#393939"
+                    android:textColor="#000000"
                     android:background="@android:color/transparent"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
@@ -109,6 +110,7 @@
                     ></RelativeLayout>
 
                 <EditText
+                    android:id="@+id/loginEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
@@ -116,13 +118,16 @@
                     android:textStyle="bold"
                     android:layout_marginTop="30dp"
                     android:textColorHint="#696969"
-                    android:textColor="#393939"
+                    android:textColor="#000000"
                     android:background="@android:color/transparent"
                     android:layout_marginStart="30dp"
                     android:drawableEnd="@drawable/ic_email"
                     android:drawableTint="#696969"
                     android:layout_marginEnd="30dp"
+
                     ></EditText>
+
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -132,6 +137,7 @@
                     ></RelativeLayout>
 
                 <EditText
+                    android:id="@+id/loginPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
@@ -139,7 +145,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="30dp"
                     android:textColorHint="#696969"
-                    android:textColor="#393939"
+                    android:textColor="#050505"
                     android:background="@android:color/transparent"
                     android:layout_marginStart="30dp"
                     android:drawableEnd="@drawable/ic_key"
@@ -154,20 +160,46 @@
                     android:layout_marginEnd="50dp"
                     ></RelativeLayout>
 
-                <Button
+
+                <Spinner
+                    android:id="@+id/loginSpinnerTipoUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="Registrarse"
-                    android:layout_marginTop="60dp"
-                    android:background="@drawable/button_signup_account"
-                    android:textAllCaps="false"
+                    android:padding="15dp"
+                    android:hint="Password"
+                    android:entries="@array/TiposUsuarios"
                     android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
+                    android:layout_marginTop="30dp"
+                    android:textColorHint="#696969"
+                    android:textColor="#393939"
+                    android:layout_marginStart="30dp"
+                    android:drawableTint="#696969"
+                    android:layout_marginEnd="30dp"
+
+
+                    ></Spinner>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="50dp"
+                    ></RelativeLayout>
+
+                <Button
+                    android:id="@+id/loginBtnRegistrarse"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:layout_marginStart="50dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginEnd="50dp"
                     android:layout_marginBottom="80dp"
-                    ></Button>
+                    android:background="@drawable/button_signup_account"
+                    android:text="Registrarse"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"></Button>
 
             </LinearLayout>
 

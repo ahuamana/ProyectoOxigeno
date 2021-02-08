@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "413849702296",
+    "project_id": "proyectooxigen",
+    "storage_bucket": "proyectooxigen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413849702296:android:5ee70fb00cd0c9e406e5ed",
+        "android_client_info": {
+          "package_name": "com.example.proyectooxigen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413849702296-enf0iaui2h6qe11mkmg2k3me1f0m8ndq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiizMh7uF70tsDDWEb-t2pm2QxYqSFT2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413849702296-enf0iaui2h6qe11mkmg2k3me1f0m8ndq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

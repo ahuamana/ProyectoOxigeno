@@ -21,8 +21,8 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="45dp"
-
         tools:ignore="MissingConstraints">
+
 
         <LinearLayout
             android:id="@+id/contenedorRegresar"
@@ -47,6 +47,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"></TextView>
 
+
         </LinearLayout>
 
     </LinearLayout>
@@ -56,6 +57,7 @@
     <com.github.captain_miao.optroundcardview.OptRoundCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         app:optRoundCardBackgroundColor="#5B6E7C"
         app:optRoundCardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -93,10 +95,11 @@
                     android:layout_marginEnd="50dp"
                     ></TextView>
                 <EditText
+                    android:id="@+id/STemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:hint="Username"
+                    android:hint="E-mail"
                     android:textStyle="bold"
                     android:layout_marginTop="30dp"
                     android:textColorHint="@color/white"
@@ -114,6 +117,7 @@
                     ></RelativeLayout>
 
                 <EditText
+                    android:id="@+id/STpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
@@ -136,6 +140,7 @@
                     ></RelativeLayout>
 
                 <Button
+                    android:id="@+id/LoginBtnIngresar"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="Ingresar"
@@ -150,6 +155,7 @@
                     ></Button>
 
                 <Button
+                    android:id="@+id/LoginbtnAnotherAccount"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:elevation="0dp"
@@ -177,7 +183,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center">
-                        
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -185,7 +191,7 @@
                             android:foreground="?android:attr/selectableItemBackground"
                             android:focusable="true"
                             android:padding="15dp"
-                            android:text="Registrar"
+                            android:text="Registrarse"
                             android:textColor="@color/black"
                             android:textSize="25dp"
                             android:textStyle="bold"
@@ -210,7 +216,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:elevation="0dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/profile128"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
