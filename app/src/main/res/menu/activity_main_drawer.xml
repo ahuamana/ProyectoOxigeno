@@ -16,9 +16,27 @@
             android:id="@+id/nav_premium"
             android:icon="@drawable/ic_premium"
             android:title="Premium" />
-        <item
-            android:id="@+id/nav_contactenos"
-            android:icon="@drawable/ic_salir"
-            android:title="Contáctenos" />
+
+
     </group>
+
+
+        <item android:title="Configuración">
+        <menu>
+            <item
+                android:id="@+id/nav_contactenos"
+                android:icon="@drawable/ic_info"
+                android:title="Contactenos"
+                ></item>
+
+            <item
+                android:id="@+id/nav_cerrarsession"
+                android:icon="@drawable/ic_salir"
+                android:title="Cerrar sesión"
+                ></item>
+
+        </menu>
+        </item>
+
+
 </menu>
