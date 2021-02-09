@@ -64,6 +64,8 @@ public class start extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(start.this, "Correcto!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        finish();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
