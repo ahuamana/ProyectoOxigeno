@@ -2,6 +2,7 @@ package com.example.proyectooxigen;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -15,6 +16,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,6 +29,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
 
     //declarar variables
     NavigationView navigationView;
@@ -90,14 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 //identify the user access level
 
                 if (documentSnapshot.getString("TipoUsuario").equals("Usuario")) {
-
-                    //Ocultar menu registrar
-                    NavigationView navigationView = findViewById(R.id.nav_view);
-                    Menu nav_Menu = navigationView.getMenu();
-                    nav_Menu.findItem(R.id.nav_registrar).setVisible(false);
-                    Log.e("mensaje: ", "Ocultando menu");
-                    //Empresa
-
+                    hideItem();
                 } else {
                     Log.e("TipodeUsuario: ", "" + documentSnapshot.getString("TipoUsuario"));
                 }
@@ -107,9 +104,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideItem() {
+        //Ocultar menu registrar
         NavigationView navigationView = findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
         nav_Menu.findItem(R.id.nav_registrar).setVisible(false);
+        Log.e("mensaje: ", "Ocultando menu");
     }
 
     @Override
@@ -118,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {

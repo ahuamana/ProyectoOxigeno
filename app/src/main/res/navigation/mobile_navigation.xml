@@ -29,5 +29,11 @@
         android:label="Contactenos"
         tools:layout="@layout/contactenos_fragment" />
 
+    <fragment
+        android:id="@+id/nav_cerrarsession"
+        android:name="com.example.proyectooxigen.menus.cerrarsesion.cerrarsession"
+        android:label="Cerrar sesión"
+        tools:layout="@layout/contactenos_fragment" />
+
 
 </navigation>
