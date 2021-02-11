@@ -25,6 +25,7 @@ public class start extends AppCompatActivity {
     LinearLayout contenedorRegresar;
     Button loginbtnAnotherAccount, loginbtnIngresar;
     EditText STemail, STpassword;
+    boolean valid=true;
 
     //Referencias
     FirebaseAuth fAuth;
@@ -58,28 +59,47 @@ public class start extends AppCompatActivity {
         loginbtnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Inicia Login
-                ////Inicia metodo de signin
-                fAuth.signInWithEmailAndPassword(STemail.getText().toString(),STpassword.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(start.this, "Correcto!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                        finish();
+                //Valida campos
+                checkField(STemail);
+                checkField(STpassword);
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                       Toast.makeText(start.this, "Correo o Contraseña incorrecto!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                ////finaliza metodo de signin
+                if(valid)
+                {
+                    //Inicia Login
+                    ////Inicia metodo de signin
+                    fAuth.signInWithEmailAndPassword(STemail.getText().toString(),STpassword.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            Toast.makeText(start.this, "Correcto!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(start.this, "Correo o Contraseña incorrecto!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    ////finaliza metodo de signin
+                    
+                }//fin del if(valid)
 
             }
         });
         //fin de accion del boton Ingresar
 
+
+    }
+
+    public boolean checkField(EditText text)
+    {
+        if(text.getText().toString().isEmpty()){
+            text.setError("Error");
+            valid=false;
+        }else{ valid=true;}
+
+        return valid;
 
     }
 
@@ -99,4 +119,7 @@ public class start extends AppCompatActivity {
         //fin de la verificacion
 
     }
+
+
+
 }
