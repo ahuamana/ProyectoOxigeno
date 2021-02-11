@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.proyectooxigen.MainActivity;
 import com.example.proyectooxigen.R;
+import com.example.proyectooxigen.rules.validaciones;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +26,9 @@ public class start extends AppCompatActivity {
     LinearLayout contenedorRegresar;
     Button loginbtnAnotherAccount, loginbtnIngresar;
     EditText STemail, STpassword;
-    boolean valid=true;
+    boolean validEmail=true;
+    boolean validPassword=true;
+    validaciones rules= new validaciones();
 
     //Referencias
     FirebaseAuth fAuth;
@@ -38,6 +41,7 @@ public class start extends AppCompatActivity {
         //Inicio
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+
 
         //relacion con ids del xml
         STemail = findViewById(R.id.STemail);
@@ -60,30 +64,31 @@ public class start extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Valida campos
-                checkField(STemail);
-                checkField(STpassword);
+                validEmail=rules.checkField(STemail);
+                validPassword=rules.checkField(STpassword);
 
-                if(valid)
+                if(validEmail)
                 {
-                    //Inicia Login
-                    ////Inicia metodo de signin
-                    fAuth.signInWithEmailAndPassword(STemail.getText().toString(),STpassword.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(start.this, "Correcto!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            finish();
+                    if(validPassword) {
+                        //Inicia Login
+                        ////Inicia metodo de signin
+                        fAuth.signInWithEmailAndPassword(STemail.getText().toString(), STpassword.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                Toast.makeText(start.this, "Correcto!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                finish();
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(start.this, "Correo o Contraseña incorrecto!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    ////finaliza metodo de signin
-                    
-                }//fin del if(valid)
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(start.this, "Correo o Contraseña incorrecto!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        ////finaliza metodo de signin
+                    }//fin valid password
+                }//fin del if(validEmail)
 
             }
         });
@@ -92,16 +97,6 @@ public class start extends AppCompatActivity {
 
     }
 
-    public boolean checkField(EditText text)
-    {
-        if(text.getText().toString().isEmpty()){
-            text.setError("Error");
-            valid=false;
-        }else{ valid=true;}
-
-        return valid;
-
-    }
 
     public void OpenSignupPage(View view) {
 
