@@ -15,4 +15,11 @@
         <item>Usuario</item>
         <item>Empresa</item>
     </array>
+    <array name="TipoServicios">
+        <item>Seleccione</item>
+        <item>Recargas</item>
+        <item>Ventas</item>
+        <item>Recarga y Venta</item>
+    </array>
+
 </resources>

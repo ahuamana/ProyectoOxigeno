@@ -1,13 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menus.Registrar.registrar">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:src="@drawable/company256"
+                android:layout_height="150dp"
+                android:layout_gravity="center"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="30dp"
+                android:layout_width="wrap_content"
+                android:text="Registro"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"></TextView>
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginEnd="30dp"
+                android:hint="Nombre Empresa"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginEnd="30dp"
+                android:hint="Direccion"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginEnd="30dp"
+
+                android:hint="Departamento"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginEnd="30dp"
+
+                android:hint="Provincia"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginEnd="30dp"
+                android:hint="Telefono"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginEnd="30dp"
+
+                android:hint="Disponibilidad"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/primaryDarkColor"
+
+                android:hint="Precio x Unidad"
+                android:textColorHint="#9A9797"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edittext_withborder"
+                ></EditText>
+
+            <Spinner
+                android:id="@+id/loginSpinnerTipoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:background="@drawable/edittext_withborder"
+                android:hint="Password"
+                android:entries="@array/TipoServicios"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:textColorHint="#696969"
+                android:textColor="#393939"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                ></Spinner>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:padding="10dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/button_signup_account"
+                android:text="Guardar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                ></Button>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

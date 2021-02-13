@@ -50,6 +50,32 @@
 
         </LinearLayout>
 
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:focusable="true"
+            tools:ignore="InvalidId">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                ></ImageView>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"></TextView>
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
@@ -58,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
-        app:optRoundCardBackgroundColor="#5B6E7C"
+        app:optRoundCardBackgroundColor="#353758"
         app:optRoundCardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -85,6 +111,7 @@
 
                 >
                 <TextView
+                    android:textSize="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"

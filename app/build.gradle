@@ -44,6 +44,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Google Pay API
+    implementation 'com.google.android.gms:play-services-wallet:18.1.2'
+    implementation 'com.android.support:appcompat-v7:24.1.1'
+
+
     //circleimageview
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
@@ -57,5 +63,8 @@ dependencies {
 
     dependencies {
         implementation 'com.github.captain-miao:optroundcardview:1.0.0'
+
     }
+
+
 }

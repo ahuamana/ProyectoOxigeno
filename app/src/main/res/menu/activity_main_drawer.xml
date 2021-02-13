@@ -18,17 +18,25 @@
             android:icon="@drawable/ic_premium"
             android:title="Premium" />
 
+        <item
+            android:id="@+id/nav_contactenos"
+            android:icon="@drawable/ic_info"
+            android:title="Contactenos"
+            ></item>
+
 
     </group>
 
 
         <item android:title="Configuración">
         <menu>
+
             <item
-                android:id="@+id/nav_contactenos"
-                android:icon="@drawable/ic_info"
-                android:title="Contactenos"
+                android:id="@+id/nav_compartir"
+                android:icon="@drawable/ic_share"
+                android:title="Compartir"
                 ></item>
+
 
             <item
                 android:id="@+id/nav_cerrarsession"

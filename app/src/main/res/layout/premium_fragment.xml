@@ -1,13 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menus.Premium.premium">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/premium512"
+                ></de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:text="Beneficios"
+                android:textColor="#0D0C22"
+
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:paddingStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:text="◄ Acceso a los precios en tiempo real"
+                android:textColor="#0D0C22"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:paddingStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:text="◄ Acceso a la disponiblidad actual"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:paddingStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:text="◄ + Detalles"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="30dp"
+                android:layout_width="wrap_content"
+                android:text="30.00"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:drawableStart="@drawable/dollarsymbol32"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"></TextView>
+
+
+
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/button_googlepay"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:drawableStart="@drawable/google32"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="@color/white"
+                android:text="Pagar con Google" ></Button>
+
+            <Button
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/button_paycreditcard"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:drawableStart="@drawable/creditcardx1"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="@color/white"
+                android:text="Pagar con tarjeta"
+                android:layout_marginBottom="100dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

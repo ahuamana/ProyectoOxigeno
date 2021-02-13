@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-               R.id.nav_inicio, R.id.nav_registrar, R.id.nav_premium, R.id.nav_contactenos,R.id.nav_cerrarsession)
+               R.id.nav_inicio, R.id.nav_registrar, R.id.nav_premium, R.id.nav_contactenos,R.id.nav_cerrarsession,R.id.nav_compartir)
                .setDrawerLayout(drawer)
                .build();
 
