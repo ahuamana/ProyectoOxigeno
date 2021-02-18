@@ -16,10 +16,16 @@
         <item>Empresa</item>
     </array>
     <array name="TipoServicios">
-        <item>Seleccione</item>
+        <item>Seleccione servicio</item>
         <item>Recargas</item>
         <item>Ventas</item>
         <item>Recarga y Venta</item>
+    </array>
+
+    <array name="disponibilidad">
+        <item>Seleccione disponibilidad</item>
+        <item>Disponible</item>
+        <item>No disponible</item>
     </array>
 
 </resources>

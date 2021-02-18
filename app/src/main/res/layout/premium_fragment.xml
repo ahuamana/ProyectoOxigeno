@@ -91,11 +91,12 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/button_googlepay"
                 android:textStyle="bold"
+
                 android:textSize="15dp"
-                android:drawableStart="@drawable/google32"
-                android:padding="20dp"
+                android:drawableStart="@drawable/google24"
+                android:padding="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:textColor="@color/white"
                 android:text="Pagar con Google" ></Button>
 
@@ -107,9 +108,9 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:drawableStart="@drawable/creditcardx1"
-                android:padding="20dp"
+                android:padding="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:textColor="@color/white"
                 android:text="Pagar con tarjeta"
                 android:layout_marginBottom="100dp"

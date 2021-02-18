@@ -7,7 +7,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="57dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,173 +17,169 @@
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:src="@drawable/company256"
                 android:layout_height="150dp"
-                android:layout_gravity="center"></de.hdodenhof.circleimageview.CircleImageView>
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/company256"></de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:padding="10dp"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_marginEnd="30dp"
                 android:layout_width="wrap_content"
-                android:text="Registro"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"></TextView>
-            <EditText
-                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
                 android:layout_marginStart="30dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textSize="15dp"
-                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:padding="10dp"
+                android:text="Registro"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/FRegistrarNombreEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edittext_withborder"
                 android:hint="Nombre Empresa"
-                android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textSize="15dp"
                 android:textColor="@color/primaryDarkColor"
+                android:textColorHint="#9A9797"
+                android:textSize="15dp"></EditText>
+
+            <EditText
+                android:id="@+id/FRegistrarDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:background="@drawable/edittext_withborder"
                 android:hint="Direccion"
-                android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textSize="15dp"
                 android:textColor="@color/primaryDarkColor"
-                android:layout_marginEnd="30dp"
+                android:textColorHint="#9A9797"
+                android:textSize="15dp"></EditText>
 
+            <EditText
+                android:id="@+id/FRegistrardepartamento"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edittext_withborder"
                 android:hint="Departamento"
-                android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
 
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textSize="15dp"
                 android:textColor="@color/primaryDarkColor"
-                android:layout_marginEnd="30dp"
+                android:textColorHint="#9A9797"
+                android:textSize="15dp"></EditText>
 
+            <EditText
+                android:id="@+id/FRegistrarProvincia"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edittext_withborder"
                 android:hint="Provincia"
-                android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
 
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textSize="15dp"
-
                 android:textColor="@color/primaryDarkColor"
+                android:textColorHint="#9A9797"
+                android:textSize="15dp"></EditText>
+
+            <EditText
+                android:id="@+id/FRegistrarTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+
+                android:background="@drawable/edittext_withborder"
                 android:hint="Telefono"
-                android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
-
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:textSize="15dp"
                 android:textColor="@color/primaryDarkColor"
-                android:layout_marginEnd="30dp"
-
-                android:hint="Disponibilidad"
                 android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
-
-            <EditText
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textSize="15dp"
-                android:textColor="@color/primaryDarkColor"
-
-                android:hint="Precio x Unidad"
-                android:textColorHint="#9A9797"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edittext_withborder"
-                ></EditText>
+                android:textSize="15dp"></EditText>
 
             <Spinner
-                android:id="@+id/loginSpinnerTipoUsuario"
+                android:id="@+id/FRegistrarSPdisponibilidad"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="15dp"
-                android:background="@drawable/edittext_withborder"
-                android:hint="Password"
-                android:entries="@array/TipoServicios"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:textColorHint="#696969"
-                android:textColor="#393939"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
-                ></Spinner>
+                android:background="@drawable/edittext_withborder"
+                android:entries="@array/disponibilidad"
+                android:hint="Password"
+                android:padding="15dp"
+                android:textColor="#393939"
+                android:textColorHint="#696969"
+                android:textStyle="bold"></Spinner>
 
+            <EditText
+                android:id="@+id/FRegistrarPrecioUnidad"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edittext_withborder"
+                android:hint="Precio x Unidad"
+
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/primaryDarkColor"
+                android:textColorHint="#9A9797"
+                android:textSize="15dp"></EditText>
+
+            <Spinner
+                android:id="@+id/FRegistrarSPTipoServicio"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/edittext_withborder"
+                android:entries="@array/TipoServicios"
+                android:hint="Password"
+                android:padding="15dp"
+                android:textColor="#393939"
+                android:textColorHint="#696969"
+                android:textStyle="bold"></Spinner>
 
 
             <Button
+                android:id="@+id/FRegistrarBtnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:padding="10dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/button_signup_account"
+                android:padding="10dp"
                 android:text="Guardar"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                ></Button>
-
-
+                android:textStyle="bold"></Button>
 
 
         </LinearLayout>
     </ScrollView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
