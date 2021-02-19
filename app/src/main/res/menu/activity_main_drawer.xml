@@ -12,7 +12,7 @@
         <item
             android:id="@+id/nav_registrar"
             android:icon="@drawable/ic_person"
-            android:title="Registrar" />
+            android:title="Registrar Empresa" />
         <item
             android:id="@+id/nav_premium"
             android:icon="@drawable/ic_premium"

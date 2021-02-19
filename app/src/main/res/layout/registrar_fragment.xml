@@ -43,6 +43,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:singleLine="true"
                 android:background="@drawable/edittext_withborder"
                 android:hint="Nombre Empresa"
                 android:paddingStart="20dp"
@@ -58,6 +59,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:singleLine="true"
                 android:background="@drawable/edittext_withborder"
                 android:hint="Direccion"
                 android:paddingStart="20dp"
@@ -73,6 +75,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:singleLine="true"
                 android:background="@drawable/edittext_withborder"
                 android:hint="Departamento"
 
@@ -89,6 +92,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:singleLine="true"
                 android:background="@drawable/edittext_withborder"
                 android:hint="Provincia"
 
@@ -105,7 +109,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-
+                android:singleLine="true"
                 android:background="@drawable/edittext_withborder"
                 android:hint="Telefono"
                 android:paddingStart="20dp"
@@ -136,6 +140,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
+                android:singleLine="true"
                 android:background="@drawable/edittext_withborder"
                 android:hint="Precio x Unidad"
 

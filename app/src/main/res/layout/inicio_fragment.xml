@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".menus.Inicio.inicio">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:src="@drawable/problemsolving512"
         android:text="Hello" />
 
 </FrameLayout>

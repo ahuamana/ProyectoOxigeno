@@ -33,7 +33,7 @@
         android:id="@+id/nav_cerrarsession"
         android:name="com.example.proyectooxigen.menus.cerrarsesion.cerrarsession"
         android:label="Cerrar sesión"
-        tools:layout="@layout/contactenos_fragment" />
+        tools:layout="@layout/cerrarsession_fragment" />
 
 
 </navigation>

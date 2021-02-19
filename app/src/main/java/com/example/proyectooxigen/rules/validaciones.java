@@ -25,7 +25,7 @@ public class validaciones {
     {
         if(sp.getSelectedItemPosition()==0){
             TextView errorText=(TextView)sp.getSelectedView();
-            errorText.setError("");
+            errorText.setError("Error");
             errorText.setTextColor(Color.RED);
             errorText.setText(mensaje);
             valid=false;
