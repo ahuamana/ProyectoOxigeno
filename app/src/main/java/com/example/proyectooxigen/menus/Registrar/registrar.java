@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.proyectooxigen.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -70,27 +71,70 @@ public class registrar extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //Inicia accion del boton
+                //Inicia el boton guardar
                 FirebaseUser user = fAuth.getCurrentUser();//Obtener el id del usuario que ya se creo y se puede ver ese id con el metodo getUid()
                 DocumentReference df = fStore.collection("DatosEmpresa").document(user.getUid());
 
-                String existe= String.valueOf(fStore.collection("DatosEmpresa").document(user.getUid()));
+                df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                //Actualizar campos en Firebase
+                                FirebaseUser user = fAuth.getCurrentUser();//Obtener el id del usuario que ya se creo y se puede ver ese id con el metodo getUid()
+                                DocumentReference df = fStore.collection("DatosEmpresa").document(user.getUid());
+
+                                Map<String, Object> actualizacionDatos = new HashMap<>();
+                                actualizacionDatos.put("NombreEmpresa",FReg_nombreempresa.getText().toString());
+                                actualizacionDatos.put("DireccionEmpresa",FReg_direccion.getText().toString());
+                                actualizacionDatos.put("DepartamentoEmpresa",FReg_departamento.getText().toString());
+                                actualizacionDatos.put("TelefonoEmpresa",FReg_Telefono.getText().toString());
+                                actualizacionDatos.put("ProvinciaEmpresa",FReg_provincia.getText().toString());
+                                actualizacionDatos.put("PrecioUnitarioProducto",FReg_precioUni.getText().toString());
+                                actualizacionDatos.put("DisponibilidadEmpresa",FReg_spdisponiblidad.getSelectedItem().toString());
+                                actualizacionDatos.put("ServicioEmpresa",FReg_spTipoServicio.getSelectedItem().toString());
+
+                                df.update(actualizacionDatos);
+                                //fin de asignacion
+                                Log.e("Mensaje:", "DocumentSnapshot data: " + document.getData());
+                                Toast.makeText(getActivity(), "Datos actualizados correctamente!", Toast.LENGTH_SHORT).show();
+                                //fin de actualizacion
+
+                            } else {
+                                Log.e("Mensaje:", "no hay documento, comenzaremos a guardar los campos en firebase");
+
+                                //Guardar los campos
+                                ////Utilizaremos Map para almacenar ahi los datos de la empresa
+                                Map<String, Object> userInfo = new HashMap<>();
+                                userInfo.put("NombreEmpresa",FReg_nombreempresa.getText().toString());
+                                userInfo.put("DireccionEmpresa",FReg_direccion.getText().toString());
+                                userInfo.put("DepartamentoEmpresa",FReg_departamento.getText().toString());
+                                userInfo.put("TelefonoEmpresa",FReg_Telefono.getText().toString());
+                                userInfo.put("ProvinciaEmpresa",FReg_provincia.getText().toString());
+                                userInfo.put("PrecioUnitarioProducto",FReg_precioUni.getText().toString());
+                                userInfo.put("DisponibilidadEmpresa",FReg_spdisponiblidad.getSelectedItem().toString());
+                                userInfo.put("ServicioEmpresa",FReg_spTipoServicio.getSelectedItem().toString());
+
+                                //enviar el map con los datos a Firebase
+                                df.set(userInfo);
+                                Toast.makeText(getActivity(), "Datos guardados correctamente!", Toast.LENGTH_SHORT).show();
+
+                            }
+                        } else {
+                            Log.e("Mensaje", "Error al consultar datos ", task.getException());
+                        }
 
 
-                ////Utilizaremos Map para almacenar ahi los datos de la empresa
-                Map<String, Object> userInfo = new HashMap<>();
-                userInfo.put("NombreEmpresa",FReg_nombreempresa.getText().toString());
-                userInfo.put("DireccionEmpresa",FReg_direccion.getText().toString());
-                userInfo.put("DepartamentoEmpresa",FReg_departamento.getText().toString());
-                userInfo.put("TelefonoEmpresa",FReg_Telefono.getText().toString());
-                userInfo.put("ProvinciaEmpresa",FReg_provincia.getText().toString());
-                userInfo.put("PrecioUnitarioProducto",FReg_precioUni.getText().toString());
-                userInfo.put("DisponibilidadEmpresa",FReg_spdisponiblidad.getSelectedItem().toString());
-                userInfo.put("ServicioEmpresa",FReg_spTipoServicio.getSelectedItem().toString());
+                    }
+                });
 
-                //enviar el map con los datos a Firebase
-                df.set(userInfo);
-                Toast.makeText(getActivity(), "Datos guardados correctamente!", Toast.LENGTH_SHORT).show();
+                //fin del metodo para traer los datos y rellenarlos
+
+                //Inicia accion del boton
+
+
                 //Termina accion del boton
 
 
