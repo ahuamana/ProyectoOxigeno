@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectooxigen.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -65,9 +69,13 @@ public class registrar extends Fragment {
         FReg_btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Inicia accion del boton
                 FirebaseUser user = fAuth.getCurrentUser();//Obtener el id del usuario que ya se creo y se puede ver ese id con el metodo getUid()
                 DocumentReference df = fStore.collection("DatosEmpresa").document(user.getUid());
+
+                String existe= String.valueOf(fStore.collection("DatosEmpresa").document(user.getUid()));
+
 
                 ////Utilizaremos Map para almacenar ahi los datos de la empresa
                 Map<String, Object> userInfo = new HashMap<>();
@@ -75,8 +83,8 @@ public class registrar extends Fragment {
                 userInfo.put("DireccionEmpresa",FReg_direccion.getText().toString());
                 userInfo.put("DepartamentoEmpresa",FReg_departamento.getText().toString());
                 userInfo.put("TelefonoEmpresa",FReg_Telefono.getText().toString());
-                userInfo.put("ProvinciaEmpresa",FReg_Telefono.getText().toString());
-                userInfo.put("PrecioUnitarioProducto",FReg_Telefono.getText().toString());
+                userInfo.put("ProvinciaEmpresa",FReg_provincia.getText().toString());
+                userInfo.put("PrecioUnitarioProducto",FReg_precioUni.getText().toString());
                 userInfo.put("DisponibilidadEmpresa",FReg_spdisponiblidad.getSelectedItem().toString());
                 userInfo.put("ServicioEmpresa",FReg_spTipoServicio.getSelectedItem().toString());
 
@@ -84,6 +92,7 @@ public class registrar extends Fragment {
                 df.set(userInfo);
                 Toast.makeText(getActivity(), "Datos guardados correctamente!", Toast.LENGTH_SHORT).show();
                 //Termina accion del boton
+
 
             }
         });
@@ -105,6 +114,69 @@ public class registrar extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        //Inicia el campo de traer los datos
+        FirebaseUser user = fAuth.getCurrentUser();//Obtener el id del usuario que ya se creo y se puede ver ese id con el metodo getUid()
+        DocumentReference df = fStore.collection("DatosEmpresa").document(user.getUid());
+
+        df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        //Asignar los campos a cada etiqueta de xml
+
+                        FReg_nombreempresa.setText(document.getString("NombreEmpresa"));
+                        FReg_direccion.setText(document.getString("DireccionEmpresa"));
+                        FReg_departamento.setText(document.getString("DepartamentoEmpresa"));
+                        FReg_provincia.setText(document.getString("ProvinciaEmpresa"));
+                        FReg_Telefono.setText(document.getString("TelefonoEmpresa"));
+
+                        FReg_precioUni.setText(document.getString("NombreEmpresa"));
+
+                        switch (document.getString("DisponibilidadEmpresa"))
+                        {
+                            case "Disponible":
+                                FReg_spdisponiblidad.setSelection(1);
+                                break;
+                            case "No disponible":
+                                FReg_spdisponiblidad.setSelection(2);
+                                break;
+                        }
+
+                        switch (document.getString("ServicioEmpresa"))
+                        {
+                            case "Recargas":
+                                FReg_spTipoServicio.setSelection(1);
+                                break;
+                            case "Ventas":
+                                FReg_spTipoServicio.setSelection(2);
+                                break;
+
+                            case "Recarga y Venta":
+                                FReg_spTipoServicio.setSelection(3);
+                                break;
+                        }
+
+
+                        Log.e("Mensaje:", "Nombre de la empresa: " + document.getString("NombreEmpresa"));
+                        //fin de asignacion
+                        Log.e("Mensaje:", "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.e("Mensaje:", "no hay documento");
+                    }
+                } else {
+                    Log.e("Mensaje", "Error al consultar datos ", task.getException());
+                }
+
+
+            }
+        });
+
+        //fin del metodo para traer los datos y rellenarlos
+
 
     }
 }
