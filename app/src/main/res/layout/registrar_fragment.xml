@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -150,6 +151,80 @@
                 android:textColorHint="#9A9797"
                 android:textSize="15dp"></EditText>
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:focusable="false"
+                        android:id="@+id/FRegistrarAltitud"
+                        android:layout_width="115dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/edittext_withborder"
+                        android:hint="Altidud"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textColorHint="#9A9797"
+                        android:textSize="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:layout_editor_absoluteY="0dp"
+                        tools:ignore="MissingConstraints"></EditText>
+
+                    <ImageButton
+                        android:id="@+id/FRegistrarbtnLocation"
+                        android:layout_width="50dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/edittext_withborder"
+                        android:src="@drawable/pin32"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/FRegistrarLongitud"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:ignore="MissingConstraints"></ImageButton>
+
+                    <EditText
+                        android:id="@+id/FRegistrarLongitud"
+                        android:layout_width="115dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/edittext_withborder"
+                        android:focusable="false"
+                        android:layout_marginStart="10dp"
+                        android:hint="Longtiud"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textColorHint="#9A9797"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/FRegistrarAltitud"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:ignore="MissingConstraints"></EditText>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </LinearLayout>
+
             <Spinner
                 android:id="@+id/FRegistrarSPTipoServicio"
                 android:layout_width="match_parent"
@@ -170,9 +245,9 @@
                 android:id="@+id/FRegistrarBtnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/button_signup_account"
                 android:padding="10dp"

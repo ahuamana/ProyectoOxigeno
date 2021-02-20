@@ -35,5 +35,11 @@
         android:label="Cerrar sesión"
         tools:layout="@layout/cerrarsession_fragment" />
 
+    <fragment
+        android:id="@+id/nav_compartir"
+        android:name="com.example.proyectooxigen.menus.compartir.share"
+        android:label="Compartir"
+        tools:layout="@layout/share_fragment" />
+
 
 </navigation>
