@@ -160,48 +160,36 @@
                 android:layout_height="48dp">
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
                     <EditText
-                        android:focusable="false"
-                        android:id="@+id/FRegistrarAltitud"
-                        android:layout_width="115dp"
+                        android:id="@+id/FRegistrarLatitud"
+                        android:layout_width="0dp"
                         android:layout_height="48dp"
                         android:background="@drawable/edittext_withborder"
-                        android:hint="Altidud"
+                        android:layout_weight="2"
+                        android:hint="Latitud"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
                         android:singleLine="true"
                         android:textColor="@color/primaryDarkColor"
                         android:textColorHint="#9A9797"
                         android:textSize="15dp"
+                        android:focusable="false"
                         app:layout_constraintStart_toStartOf="parent"
-                        tools:layout_editor_absoluteY="0dp"
-                        tools:ignore="MissingConstraints"></EditText>
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteY="0dp"></EditText>
 
-                    <ImageButton
-                        android:id="@+id/FRegistrarbtnLocation"
-                        android:layout_width="50dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/edittext_withborder"
-                        android:src="@drawable/pin32"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/FRegistrarLongitud"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        tools:ignore="MissingConstraints"></ImageButton>
 
                     <EditText
                         android:id="@+id/FRegistrarLongitud"
-                        android:layout_width="115dp"
+                        android:layout_width="0dp"
                         android:layout_height="48dp"
+                        android:layout_weight="2"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="0dp"
                         android:background="@drawable/edittext_withborder"
                         android:focusable="false"
-                        android:layout_marginStart="10dp"
                         android:hint="Longtiud"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
@@ -210,17 +198,22 @@
                         android:textColorHint="#9A9797"
                         android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/FRegistrarLatitud"></EditText>
+
+                    <ImageButton
+                        android:id="@+id/FRegistrarbtnLocation"
+                        android:layout_width="50dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/edittext_withborder"
+                        android:clickable="true"
+                        android:src="@drawable/pin32"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/FRegistrarAltitud"
+                        app:layout_constraintHorizontal_bias="0.68"
+                        app:layout_constraintStart_toEndOf="@+id/FRegistrarLongitud"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0"
-                        tools:ignore="MissingConstraints"></EditText>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                        tools:ignore="MissingConstraints"></ImageButton>
 
 
             </LinearLayout>

@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
         fStore=FirebaseFirestore.getInstance();
 
 
+
         //LLamar al metodo para ocultar el item
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setVisibility(View.GONE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

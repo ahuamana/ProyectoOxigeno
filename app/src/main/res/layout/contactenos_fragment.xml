@@ -43,25 +43,47 @@
                     android:textColor="@color/primaryTextColor"
                     android:textSize="20dp"></TextView>
 
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/CTTtvFanpage"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
-                    android:layout_marginEnd="60dp"
+                    android:drawableStart="@drawable/facebook32"
+
+                    android:clickable="true"
+                    android:autoLink="web"
                     android:gravity="center"
-                    android:text="www.oxigenate.com"
+                    android:text="oxigenate"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="20dp"></TextView>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/CTTtvnumber1"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableStart="@drawable/whatsapp32"
                     android:layout_marginTop="150dp"
                     android:layout_marginEnd="40dp"
                     android:gravity="center"
-                    android:text="support@oxigenate.com"
+                    android:text="+51 902 533 338"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="20dp"></TextView>
+
+                <TextView
+                    android:id="@+id/CTTtvnumber2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableStart="@drawable/whatsapp32"
+                    android:layout_marginTop="200dp"
+                    android:layout_marginEnd="40dp"
+                    android:gravity="center"
+                    android:text="+51 959 556 825"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="20dp"></TextView>
 

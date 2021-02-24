@@ -16,52 +16,11 @@
         android:orientation="vertical">
 
 
-        <com.github.captain_miao.optroundcardview.OptRoundCardView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="25dp"
-            app:optRoundCardBackgroundColor="@color/black"
-            android:background="@color/black"
-            app:optRoundCardLeftTopCorner="true"
-            app:optRoundCardRightTopCorner="true"
-            app:optRoundCardLeftBottomCorner="true"
-            app:optRoundCardRightBottomCorner="true"
-            app:optRoundCardCornerRadius="50dp"
-            >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="GRACIAS POR"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.441"
-                tools:layout_editor_absoluteX="0dp"></TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="COMPARTIR"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintVertical_bias="0.088"
-                tools:layout_editor_absoluteX="0dp"></TextView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:src="@drawable/sharingwallpaper1900"
+            app:riv_corner_radius="20dp"></com.makeramen.roundedimageview.RoundedImageView>
 
 
 
@@ -69,11 +28,6 @@
 
 
 
-
-
-
-
-        </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
     </LinearLayout>
 
