@@ -31,6 +31,7 @@ android {
 
 dependencies {
 
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -60,6 +61,11 @@ dependencies {
     //Current location
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
+
+    //Implementar Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     //CardView
     repositories {

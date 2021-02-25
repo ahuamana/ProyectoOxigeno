@@ -17,12 +17,25 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/FRegistrarImageBusiness"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/company256"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <ImageButton
+                android:id="@+id/FRegistrarBtnTakePhoto"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="60dp"
+                android:padding="5dp"
+                android:background="@drawable/edittext_withborder"
+                android:src="@drawable/ic_menu_camera"
+                android:layout_height="wrap_content"></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,7 +219,7 @@
                         android:layout_height="48dp"
                         android:background="@drawable/edittext_withborder"
                         android:clickable="true"
-                        android:src="@drawable/pin32"
+                        android:src="@drawable/ic_locationicon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.68"

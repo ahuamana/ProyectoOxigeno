@@ -17,11 +17,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -38,6 +40,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.proyectooxigen.R;
 import com.example.proyectooxigen.rules.validaciones;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -50,14 +53,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.app.Activity.RESULT_OK;
 
 public class registrar extends Fragment implements View.OnClickListener {
 
@@ -66,10 +75,12 @@ public class registrar extends Fragment implements View.OnClickListener {
     EditText FReg_nombreempresa, FReg_direccion,FReg_departamento,FReg_provincia,FReg_Telefono,FReg_precioUni;
     Spinner FReg_spdisponiblidad, FReg_spTipoServicio;
     Button FReg_btnGuardar;
+    CircleImageView FReg_ImageView;
+    String ValorURL=null;
     validaciones rules= new validaciones();
 
     //boton obtener latitud longitud
-    ImageButton FReg_btnLocation;
+    ImageButton FReg_btnLocation, FReg_btnTakephoto;
     private FusedLocationProviderClient client;
     EditText FReg_latitud, FReg_longitud;
 
@@ -77,8 +88,12 @@ public class registrar extends Fragment implements View.OnClickListener {
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
 
-    //Handler
-    ProgressDialog progressDialog;
+    //referencias al storage
+    private StorageReference mstorage;
+    private static final int GALLERY_INTENT = 1;
+    private ProgressDialog progressDialog;
+
+
 
     public static registrar newInstance() {
         return new registrar();
@@ -99,8 +114,10 @@ public class registrar extends Fragment implements View.OnClickListener {
         FReg_provincia = vista.findViewById(R.id.FRegistrarProvincia);
         FReg_Telefono = vista.findViewById(R.id.FRegistrarTelefono);
         FReg_precioUni = vista.findViewById(R.id.FRegistrarPrecioUnidad);
+        FReg_ImageView = vista.findViewById(R.id.FRegistrarImageBusiness);
 
         FReg_btnGuardar = vista.findViewById(R.id.FRegistrarBtnGuardar);
+        FReg_btnTakephoto= vista.findViewById(R.id.FRegistrarBtnTakePhoto);
 
         FReg_btnLocation = vista.findViewById(R.id.FRegistrarbtnLocation);
         FReg_latitud = vista.findViewById(R.id.FRegistrarLatitud);
@@ -113,6 +130,9 @@ public class registrar extends Fragment implements View.OnClickListener {
         //Inicializar firebase
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
+
+        FirebaseApp.initializeApp(getActivity());
+        mstorage = FirebaseStorage.getInstance().getReference();
 
         FReg_btnGuardar.setOnClickListener(this);
 
@@ -146,13 +166,96 @@ public class registrar extends Fragment implements View.OnClickListener {
             }
         });
 
+        //inicia tomar foto
+        //crear nuevo progressDialog (necesario para mostrar dialogo al cargar la foto)
+        progressDialog = new ProgressDialog(getContext());
+        FReg_btnTakephoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //inicio take photo
 
+                uploadFoto();
 
+                //fin take photo
+            }
+        });
+        //fin tomar foto
 
 
 
         return vista;
     }
+
+    //inicio de metodos para subir foto
+    private void uploadFoto() {
+
+        Intent i = new Intent(Intent.ACTION_PICK);
+        i.setType("image/*");
+        startActivityForResult(i, GALLERY_INTENT);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //inicio de if
+
+        if(requestCode==GALLERY_INTENT&& resultCode==RESULT_OK)
+        {
+            Log.e("test","entro al activity result");
+            progressDialog.setTitle("Subiendo Imagen");
+            progressDialog.setMessage("Subiendo Foto a FireBase");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+
+            Uri mipath = data.getData();
+
+            //RIimgfoto.setImageURI(mipath);
+
+            StorageReference filePath = mstorage.child("MuestraFotos").child(mipath.getLastPathSegment());
+
+            filePath.putFile(mipath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    //inicio on successlistener
+
+                    progressDialog.dismiss();
+                    Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+
+                    while (!urlTask.isSuccessful());
+
+                    Uri rutaFoto = urlTask.getResult();
+
+                    //Para guardar y mostrar la foto de firebase
+                    ValorURL=rutaFoto.toString();
+                    //Uri.parse(ValorURL);
+
+
+                    Glide.with(getActivity())
+                            .load(rutaFoto)
+                            .placeholder(R.mipmap.ic_launcher)
+                            .into(FReg_ImageView);
+
+
+                    Toast.makeText(getContext(), "Foto Agregada", Toast.LENGTH_SHORT).show();
+                    Log.e("test","Valor foto: "+ValorURL);
+
+
+                    //fin on successlistener
+                }
+            });
+
+
+            //fin de if
+        }
+
+
+
+    }
+
+    //fin de metodos para subir foto
 
 
 
@@ -240,31 +343,6 @@ public class registrar extends Fragment implements View.OnClickListener {
 
     }
 
-    public static void displayPromptForEnablingGPS(final Activity activity)
-    {
-
-        final AlertDialog.Builder builder =  new AlertDialog.Builder(activity);
-        final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
-        final String message = "Do you want open GPS setting?";
-
-        builder.setMessage(message)
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface d, int id) {
-                                activity.startActivity(new Intent(action));
-                                d.dismiss();
-                            }
-                        })
-                .setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface d, int id) {
-                                d.cancel();
-                            }
-                        });
-        builder.create().show();
-    }
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -303,6 +381,13 @@ public class registrar extends Fragment implements View.OnClickListener {
                         FReg_provincia.setText(document.getString("ProvinciaEmpresa"));
                         FReg_Telefono.setText(document.getString("TelefonoEmpresa"));
                         FReg_precioUni.setText(document.getString("PrecioUnitarioProducto"));
+
+                        //cargando imagen
+                        Glide.with(getActivity())
+                                .load(document.getString("LogoEmpresaURL"))
+                                .placeholder(R.mipmap.ic_launcher)
+                                .into(FReg_ImageView);
+                        //termino de cargar imagen
 
                         FReg_latitud.setText(document.getString("LatitudEmpresa"));
                         FReg_longitud.setText(document.getString("LongitudEmpresa"));
@@ -435,6 +520,7 @@ public class registrar extends Fragment implements View.OnClickListener {
 
                                                             actualizacionDatos.put("LatitudEmpresa",FReg_latitud.getText().toString());
                                                             actualizacionDatos.put("LongitudEmpresa",FReg_longitud.getText().toString());
+                                                            actualizacionDatos.put("LogoEmpresaURL",ValorURL);
 
                                                             df.update(actualizacionDatos);
                                                             //fin de asignacion
@@ -459,9 +545,12 @@ public class registrar extends Fragment implements View.OnClickListener {
 
                                                             userInfo.put("LatitudEmpresa",FReg_latitud.getText().toString());
                                                             userInfo.put("LongitudEmpresa",FReg_longitud.getText().toString());
+                                                            userInfo.put("LogoEmpresaURL",ValorURL);
+
                                                             //enviar el map con los datos a Firebase
                                                             df.set(userInfo);
                                                             Toast.makeText(getActivity(), "Datos guardados correctamente!", Toast.LENGTH_SHORT).show();
+
 
                                                         }
                                                     } else {
