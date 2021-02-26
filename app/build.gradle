@@ -47,6 +47,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //reciclerView con Firebase
+    //// FirebaseUI for Firebase Realtime Database
+    implementation "com.google.firebase:firebase-firestore:11.4.2"
+    implementation "com.firebaseui:firebase-ui-auth:3.0.0"
+    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+
     //Google Pay API
     implementation 'com.google.android.gms:play-services-wallet:18.1.2'
     implementation 'com.makeramen:roundedimageview:2.3.0'

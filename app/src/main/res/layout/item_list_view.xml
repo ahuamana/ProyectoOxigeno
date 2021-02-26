@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="10dp"
     app:cardCornerRadius="5dp"
@@ -14,6 +14,7 @@
         android:padding="10dp"
         >
     <ImageView
+        android:id="@+id/ILimagen"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_launcher_foreground"
@@ -46,6 +47,7 @@
             ></TextView>
 
         <Button
+            android:id="@+id/btnmasinfo"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textSize="10dp"
