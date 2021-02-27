@@ -517,6 +517,7 @@ public class registrar extends Fragment implements View.OnClickListener {
                                                             actualizacionDatos.put("PrecioUnitarioProducto",FReg_precioUni.getText().toString());
                                                             actualizacionDatos.put("DisponibilidadEmpresa",FReg_spdisponiblidad.getSelectedItem().toString());
                                                             actualizacionDatos.put("ServicioEmpresa",FReg_spTipoServicio.getSelectedItem().toString());
+                                                            actualizacionDatos.put("DepartamentoEmpresaLoweCase",FReg_departamento.getText().toString().toLowerCase());
 
                                                             actualizacionDatos.put("LatitudEmpresa",FReg_latitud.getText().toString());
                                                             actualizacionDatos.put("LongitudEmpresa",FReg_longitud.getText().toString());
@@ -542,6 +543,7 @@ public class registrar extends Fragment implements View.OnClickListener {
                                                             userInfo.put("PrecioUnitarioProducto",FReg_precioUni.getText().toString());
                                                             userInfo.put("DisponibilidadEmpresa",FReg_spdisponiblidad.getSelectedItem().toString());
                                                             userInfo.put("ServicioEmpresa",FReg_spTipoServicio.getSelectedItem().toString());
+                                                            userInfo.put("DepartamentoEmpresaLoweCase",FReg_departamento.getText().toString().toLowerCase());
 
                                                             userInfo.put("LatitudEmpresa",FReg_latitud.getText().toString());
                                                             userInfo.put("LongitudEmpresa",FReg_longitud.getText().toString());

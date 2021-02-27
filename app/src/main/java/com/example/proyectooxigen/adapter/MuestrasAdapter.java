@@ -22,6 +22,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAdapter.MuestrasHolder> {
 
+
+
     public MuestrasAdapter(FirestoreRecyclerOptions<Ingreso> options) {
         super(options);
     }
@@ -29,10 +31,18 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
     @Override
     protected void onBindViewHolder(MuestrasHolder holder, int position, Ingreso model) {
 
+
         //asignar variables con firebase
         holder.txtnombre.setText(model.getNombreEmpresa());
         Log.e("mensajeadapter",""+String.valueOf(model.getPrecioUnitarioProducto()));
-        holder.txtdireccion.setText(model.getDireccionEmpresa());
+
+        //set first letter to Uppercase
+        String input= model.getDireccionEmpresa();
+        String output = input.substring(0, 1).toUpperCase() + input.substring(1);
+        //send the direccion output to textview
+        holder.txtdireccion.setText(output);
+        holder.txtplace.setText(model.getDepartamentoEmpresa()+", "+model.getProvinciaEmpresa());
+
 
         //Integer.valueOf(model.getPrecioDB());
         Glide.with(holder.foto.getContext())
@@ -55,7 +65,7 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
     public class MuestrasHolder extends RecyclerView.ViewHolder {
 
         //crear variables para hacer la refenrencia al molde xml
-        TextView txtnombre, txtdireccion, txtdepartamento, txtprovincia;
+        TextView txtnombre, txtdireccion, txtplace, txtprovincia;
         Button btnmasinfo;
         ImageView foto;
 
@@ -64,7 +74,7 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
 
             txtnombre= vista.findViewById(R.id.tvName);
             txtdireccion=vista.findViewById(R.id.tvAddress);
-            //txtdepartamento=vista.findViewById(R.id.MMtxtTiempo);
+            txtplace=vista.findViewById(R.id.tvPlace);
             //txtprovincia=vista.findViewById(R.id.MMtxtBQV);
             btnmasinfo=vista.findViewById(R.id.btnmasinfo);
             foto=vista.findViewById(R.id.ILimagen);

@@ -30,6 +30,8 @@
 
         <TextView
             android:id="@+id/tvName"
+            android:textColor="@color/primaryDarkColor"
+            android:textAllCaps="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -38,12 +40,22 @@
 
         <TextView
             android:id="@+id/tvAddress"
+            android:inputType="textCapSentences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:layout_marginTop="5dp"
+            android:textSize="11sp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hola mundo"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
+            android:textStyle="normal"
+            android:layout_marginTop="5dp"
+            android:textSize="11sp"
             ></TextView>
 
         <Button

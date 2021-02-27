@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.appcompat.widget.SearchView;
+
 
 import com.example.proyectooxigen.R;
 import com.example.proyectooxigen.adapter.MuestrasAdapter;
@@ -27,10 +29,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 
-public class inicio extends Fragment {
+public class inicio extends Fragment implements SearchView.OnQueryTextListener {
 
     RecyclerView recyclerUsuarios;
     MuestrasAdapter adapter;
+
+    //busqueda on recycler
+    private SearchView svSearch;
 
     //Firebase
     FirebaseFirestore fStore;
@@ -47,7 +52,10 @@ public class inicio extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.inicio_fragment, container, false);
 
-        //inicializar variables
+        //inicializar variables para buscar
+        svSearch= (SearchView) vista.findViewById(R.id.Isearch);
+        initListener();
+
         //Inicializar firebase
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
@@ -104,4 +112,39 @@ public class inicio extends Fragment {
         super.onStart();
         adapter.startListening();
     }
+
+    private  void initListener(){
+        svSearch.setOnQueryTextListener(this);
+    }
+
+    //Inicia Busqueda en recycler view
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        //It will run when you write a word on search
+        processSearch(newText);
+
+        return false;
+    }
+
+    private void processSearch(String newText) {
+
+        Log.e("mensajebusqueda: ",newText.toLowerCase());
+        FirestoreRecyclerOptions <Ingreso> newoptions = new FirestoreRecyclerOptions.Builder<Ingreso>()
+                .setQuery(fStore.collection("DatosEmpresa").orderBy("DepartamentoEmpresaLoweCase").startAt(newText.toLowerCase()),Ingreso.class)
+                .build();
+
+        //enviar los datos al adapter
+        adapter=new MuestrasAdapter(newoptions);
+        adapter.startListening();
+
+        //asignar datos al recyclerView
+        recyclerUsuarios.setAdapter(adapter);
+
+    }
+    //Fin Busqueda en recycler view
 }
