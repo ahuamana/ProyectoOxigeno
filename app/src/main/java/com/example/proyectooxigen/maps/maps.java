@@ -43,7 +43,10 @@ public class maps extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_maps, container, false);
+        View vista= inflater.inflate(R.layout.fragment_maps, container, false);
+
+
+        return vista;
     }
 
     @Override
