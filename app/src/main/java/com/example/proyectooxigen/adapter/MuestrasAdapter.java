@@ -64,11 +64,10 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
                 dialogo.setContentView(R.layout.dialogo_fulldata_empresa);
 
                 //
-//                Fragment firstfragment = new maps();
-//                FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.attach(firstfragment);
-//                fragmentTransaction.commit();
+                Fragment firstfragment = new maps();
+                FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                fragmentManager.beginTransaction().add(R.id.frgmaps,firstfragment).commit();
+
 
 
                 //Variables del dialogo

@@ -30,7 +30,10 @@
                 android:background="@drawable/button_cerrar"
                 ></Button>
 
-
+            <fragment
+                android:id="@+id/frgmaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></fragment>
 
             <ImageView
                 android:id="@+id/DEfotoEmpresa"

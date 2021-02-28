@@ -20,6 +20,7 @@ import androidx.appcompat.widget.SearchView;
 import com.example.proyectooxigen.R;
 import com.example.proyectooxigen.adapter.MuestrasAdapter;
 import com.example.proyectooxigen.entidades.Ingreso;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -56,6 +57,7 @@ public class inicio extends Fragment implements SearchView.OnQueryTextListener {
         svSearch= (SearchView) vista.findViewById(R.id.Isearch);
         initListener();
 
+
         //Inicializar firebase
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
@@ -83,11 +85,12 @@ public class inicio extends Fragment implements SearchView.OnQueryTextListener {
                 .setQuery(query,Ingreso.class)
                 .build();
 
+
         //enviar los datos al adapter
         adapter=new MuestrasAdapter(options);
-
         //asignar datos al recyclerView
         recyclerUsuarios.setAdapter(adapter);
+
 
 
 
@@ -132,19 +135,26 @@ public class inicio extends Fragment implements SearchView.OnQueryTextListener {
     }
 
     private void processSearch(String newText) {
-
+        adapter=null;
         Log.e("mensajebusqueda: ",newText.toLowerCase());
         FirestoreRecyclerOptions <Ingreso> newoptions = new FirestoreRecyclerOptions.Builder<Ingreso>()
-                .setQuery(fStore.collection("DatosEmpresa").orderBy("DepartamentoEmpresaLoweCase").startAt(newText.toLowerCase()),Ingreso.class)
+                .setQuery(fStore.collection("DatosEmpresa").orderBy("DepartamentoEmpresaLoweCase").startAt(newText.toLowerCase()).limit(25).endAt(newText.toLowerCase()+'\uf8ff'),Ingreso.class)
                 .build();
 
         //enviar los datos al adapter
+
         adapter=new MuestrasAdapter(newoptions);
         adapter.startListening();
 
         //asignar datos al recyclerView
         recyclerUsuarios.setAdapter(adapter);
 
+    }
+
+    private class ProductsViewHolder extends RecyclerView.ViewHolder {
+        public ProductsViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
     //Fin Busqueda en recycler view
 }
