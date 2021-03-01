@@ -46,6 +46,7 @@ public class maps extends Fragment {
         View vista= inflater.inflate(R.layout.fragment_maps, container, false);
 
 
+
         return vista;
     }
 

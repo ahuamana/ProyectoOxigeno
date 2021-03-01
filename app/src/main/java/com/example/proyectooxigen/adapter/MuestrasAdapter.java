@@ -18,6 +18,7 @@ import com.example.proyectooxigen.MainActivity;
 import com.example.proyectooxigen.R;
 import com.example.proyectooxigen.entidades.Ingreso;
 import com.example.proyectooxigen.maps.maps;
+import com.example.proyectooxigen.menus.Inicio.dialogofragment;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -60,27 +61,35 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
 
                 Log.e("mensajeimagen",""+String.valueOf(model.getLogoEmpresaURL()));
                 Log.e("mensajeboton","Hizo Click");
-                final Dialog dialogo=new Dialog(v.getContext(), android.R.style.Theme_DeviceDefault_Light_Dialog);
-                dialogo.setContentView(R.layout.dialogo_fulldata_empresa);
+//                final Dialog dialogo=new Dialog(v.getContext(), android.R.style.Theme_DeviceDefault_Light_Dialog);
+//                dialogo.setContentView(R.layout.dialogo_fulldata_empresa);
+                String lugar = model.getDepartamentoEmpresa()+", "+model.getProvinciaEmpresa();
+
+                //crear dialogo y enviar los datos que recibira el constructor
+                dialogofragment dialogofrag= new dialogofragment(model.getNombreEmpresa(),output,model.getTelefonoEmpresa(),lugar,model.getLatitudEmpresa(),model.getLongitudEmpresa());
+                FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+
+                dialogofrag.show(fragmentManager,"DialogoTipoJuego");
+
 
                 //
-                Fragment firstfragment = new maps();
-                FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
-                fragmentManager.beginTransaction().add(R.id.frgmaps,firstfragment).commit();
+                //Fragment firstfragment = new maps();
+                //FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+               //fragmentManager.beginTransaction().add(R.id.frgmaps,firstfragment).commit();
 
 
 
                 //Variables del dialogo
-                ImageView fotoempresa = dialogo.findViewById(R.id.DEfotoEmpresa);
-                Button btnclose = dialogo.findViewById(R.id.DEbtnClose);
-                Button btnllamar = dialogo.findViewById(R.id.DEbtnllamar);
-                TextView tvnombreEmpresa = dialogo.findViewById(R.id.DEnombreEmpresa);
-                TextView tvdireccionEmpresa = dialogo.findViewById(R.id.DEdireccionEmpresa);
-                TextView tvtelefonoEmpresa = dialogo.findViewById(R.id.DEtelefonoEmpresa);
-                TextView tvlugarEmpresa = dialogo.findViewById(R.id.DElugarEmpresa);
+//                ImageView fotoempresa = dialogo.findViewById(R.id.DEfotoEmpresa);
+//                Button btnclose = dialogo.findViewById(R.id.DEbtnClose);
+//                Button btnllamar = dialogo.findViewById(R.id.DEbtnllamar);
+//                TextView tvnombreEmpresa = dialogo.findViewById(R.id.DEnombreEmpresa);
+//                TextView tvdireccionEmpresa = dialogo.findViewById(R.id.DEdireccionEmpresa);
+//                TextView tvtelefonoEmpresa = dialogo.findViewById(R.id.DEtelefonoEmpresa);
+//                TextView tvlugarEmpresa = dialogo.findViewById(R.id.DElugarEmpresa);
 
                 //asignar valores a cada caja de texto e imagenes
-                Glide.with(dialogo.getContext())
+                /*Glide.with(dialogo.getContext())
                         .load(model.getLogoEmpresaURL())
                         .placeholder(R.mipmap.ic_launcher)
                         .into(fotoempresa);
@@ -110,7 +119,7 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
                 });
 
 
-                dialogo.show();
+                dialogo.show();*/
 
             }
         });
