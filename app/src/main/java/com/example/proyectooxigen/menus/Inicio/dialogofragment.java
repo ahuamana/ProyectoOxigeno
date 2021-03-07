@@ -15,10 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-<<<<<<< HEAD
-=======
 import android.util.Log;
->>>>>>> 6cdd590 (last)
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +23,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.proyectooxigen.R;
-<<<<<<< HEAD
-=======
 import com.example.proyectooxigen.menus.Premium.bepremium;
 import com.example.proyectooxigen.menus.Premium.premium;
->>>>>>> 6cdd590 (last)
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -38,14 +32,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-<<<<<<< HEAD
-=======
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
->>>>>>> 6cdd590 (last)
 
 import java.util.Objects;
 
@@ -59,8 +50,6 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
     String latitud=null;
     String longitud=null;
     Marker currentmarker=null;
-<<<<<<< HEAD
-=======
     String precio=null;
     String disponibilidad=null;
 
@@ -71,29 +60,23 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
 
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
->>>>>>> 6cdd590 (last)
 
     GoogleMap map;
 
     private DialogofragmentViewModel mViewModel;
 
     //crear 2 constructores( 1 vacio y uno con todos los datos que se recibirar)
-<<<<<<< HEAD
-    public dialogofragment(String nombre,String direccion,String telefonoEmpresa, String departamentoProvincia, String latitud, String longitud ) {
-=======
+
     public dialogofragment(String nombre,String direccion,String telefonoEmpresa, String departamentoProvincia, String latitud, String longitud, String precio, String disponibilidad ) {
->>>>>>> 6cdd590 (last)
         this.nombre=nombre;
         this.direccion=direccion;
         this.telefono=telefonoEmpresa;
         this.departamentoProvincia=departamentoProvincia;
         this.latitud=latitud;
         this.longitud=longitud;
-<<<<<<< HEAD
-=======
+
         this.precio=precio;
         this.disponibilidad=disponibilidad;
->>>>>>> 6cdd590 (last)
 
     }
     //crear variables para recibir los datos del
@@ -124,13 +107,11 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
         //Declarar variables y asignar
 
         Button btnclose = vista.findViewById(R.id.DEbtnClose);
-<<<<<<< HEAD
         Button btnllamar = vista.findViewById(R.id.DEbtnllamar);
         TextView tvnombreEmpresa = vista.findViewById(R.id.DEnombreEmpresa);
         TextView tvdireccionEmpresa = vista.findViewById(R.id.DEdireccionEmpresa);
         TextView tvtelefonoEmpresa = vista.findViewById(R.id.DEtelefonoEmpresa);
         TextView tvlugarEmpresa = vista.findViewById(R.id.DElugarEmpresa);
-=======
         btnllamar = vista.findViewById(R.id.DEbtnllamar);
         btnpremium = vista.findViewById(R.id.DEbtnpremium);
         tvnombreEmpresa = vista.findViewById(R.id.DEnombreEmpresa);
@@ -156,9 +137,6 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
 
 
         checkispremium(vista);
-
->>>>>>> 6cdd590 (last)
-
         //inflate maps
         SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragmentmaps);
         mapFragment.getMapAsync(this);
@@ -166,12 +144,10 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
 
         //Asignar datos
         tvnombreEmpresa.setText(nombre);
-<<<<<<< HEAD
         tvtelefonoEmpresa.setText(telefono);
         tvdireccionEmpresa.setText(direccion);
         tvlugarEmpresa.setText(departamentoProvincia);
 
-=======
         tvdireccionEmpresa.setText(direccion);
         tvlugarEmpresa.setText(departamentoProvincia);
 
@@ -187,7 +163,6 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
         });
         //fin cerrar boton
 
->>>>>>> 6cdd590 (last)
         //inicio cerrar boton
         btnclose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,8 +188,6 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
         return builder.create();
     }
 
-<<<<<<< HEAD
-=======
     private void checkispremium(View vista) {
 
         fAuth=FirebaseAuth.getInstance();
@@ -256,7 +229,6 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
 
     }
 
->>>>>>> 6cdd590 (last)
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

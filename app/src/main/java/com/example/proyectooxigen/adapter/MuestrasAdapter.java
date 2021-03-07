@@ -66,11 +66,8 @@ public class MuestrasAdapter extends FirestoreRecyclerAdapter<Ingreso,MuestrasAd
                 String lugar = model.getDepartamentoEmpresa()+", "+model.getProvinciaEmpresa();
 
                 //crear dialogo y enviar los datos que recibira el constructor
-<<<<<<< HEAD
-                dialogofragment dialogofrag= new dialogofragment(model.getNombreEmpresa(),output,model.getTelefonoEmpresa(),lugar,model.getLatitudEmpresa(),model.getLongitudEmpresa());
-=======
+
                 dialogofragment dialogofrag= new dialogofragment(model.getNombreEmpresa(),output,model.getTelefonoEmpresa(),lugar,model.getLatitudEmpresa(),model.getLongitudEmpresa(),model.getPrecioUnitarioProducto(),model.getDisponibilidadEmpresa());
->>>>>>> 6cdd590 (last)
                 FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
 
                 dialogofrag.show(fragmentManager,"DialogoTipoJuego");

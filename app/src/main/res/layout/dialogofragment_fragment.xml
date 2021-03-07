@@ -92,18 +92,12 @@
                 android:textSize="10dp"></TextView>
 
             <TextView
-<<<<<<< HEAD
-=======
                 android:id="@+id/txttele"
->>>>>>> 6cdd590 (last)
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Telefono"
                 android:textSize="12dp"
-<<<<<<< HEAD
-=======
                 android:textColor="@color/purple_500"
->>>>>>> 6cdd590 (last)
                 android:layout_marginTop="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -123,11 +117,7 @@
                 android:layout_marginEnd="25dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-<<<<<<< HEAD
-                android:textColor="@color/black"
-=======
                 android:textColor="@color/purple_500"
->>>>>>> 6cdd590 (last)
                 android:textSize="10dp"></TextView>
 
             <TextView
@@ -156,9 +146,6 @@
                 android:paddingEnd="20dp"
                 android:textColor="@color/black"
                 android:textSize="10dp"></TextView>
-
-<<<<<<< HEAD
-=======
 
             <TextView
                 android:id="@+id/txtprecio"
@@ -218,8 +205,6 @@
                 android:textColor="@color/purple_500"
                 android:textSize="10dp"></TextView>
 
-
->>>>>>> 6cdd590 (last)
             <Button
                 android:id="@+id/DEbtnllamar"
                 android:layout_width="match_parent"
@@ -235,9 +220,6 @@
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 android:textStyle="bold"></Button>
-
-<<<<<<< HEAD
-=======
             <Button
                 android:id="@+id/DEbtnpremium"
                 android:layout_width="match_parent"
@@ -253,9 +235,6 @@
                 android:textColor="@color/white"
                 android:textSize="10sp"
                 android:textStyle="bold"></Button>
-
->>>>>>> 6cdd590 (last)
-
 
         </LinearLayout>
 

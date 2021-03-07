@@ -74,70 +74,27 @@
                 android:layout_marginEnd="30dp"
                 android:textSize="30dp"
                 android:layout_width="wrap_content"
-<<<<<<< HEAD
-                android:text="9.99"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:drawableStart="@drawable/dollarsymbol32"
-=======
                 android:text="S/. 9.99 soles"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:gravity="center"
->>>>>>> 6cdd590 (last)
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"></TextView>
-
-
-
-
             <Button
-<<<<<<< HEAD
-                android:layout_marginTop="20dp"
-=======
                 android:id="@+id/btncontactarasesor"
                 android:layout_marginTop="50dp"
->>>>>>> 6cdd590 (last)
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/button_googlepay"
                 android:textStyle="bold"
-<<<<<<< HEAD
-
-                android:textSize="15dp"
-                android:drawableStart="@drawable/google24"
-=======
                 android:textSize="15dp"
                 android:drawableStart="@drawable/ic_baseline_email_24"
->>>>>>> 6cdd590 (last)
                 android:padding="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textColor="@color/white"
-<<<<<<< HEAD
-                android:text="Pagar con Google" ></Button>
-
-            <Button
-                android:layout_marginTop="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/button_paycreditcard"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:drawableStart="@drawable/creditcardx1"
-                android:padding="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textColor="@color/white"
-                android:text="Pagar con tarjeta"
-                android:layout_marginBottom="100dp"
-                />
-=======
                 android:text="Contactar un asesor" ></Button>
 
-
->>>>>>> 6cdd590 (last)
 
         </LinearLayout>
     </ScrollView>
