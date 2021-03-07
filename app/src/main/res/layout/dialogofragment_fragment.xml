@@ -92,10 +92,18 @@
                 android:textSize="10dp"></TextView>
 
             <TextView
+<<<<<<< HEAD
+=======
+                android:id="@+id/txttele"
+>>>>>>> 6cdd590 (last)
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Telefono"
                 android:textSize="12dp"
+<<<<<<< HEAD
+=======
+                android:textColor="@color/purple_500"
+>>>>>>> 6cdd590 (last)
                 android:layout_marginTop="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -115,7 +123,11 @@
                 android:layout_marginEnd="25dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
+<<<<<<< HEAD
                 android:textColor="@color/black"
+=======
+                android:textColor="@color/purple_500"
+>>>>>>> 6cdd590 (last)
                 android:textSize="10dp"></TextView>
 
             <TextView
@@ -145,6 +157,69 @@
                 android:textColor="@color/black"
                 android:textSize="10dp"></TextView>
 
+<<<<<<< HEAD
+=======
+
+            <TextView
+                android:id="@+id/txtprecio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precio"
+                android:textSize="12dp"
+                android:textColor="@color/purple_500"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/DEprecioEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical|center"
+                android:singleLine="true"
+                android:background="@drawable/edittext_withborder"
+                android:hint="precio"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/purple_500"
+                android:textSize="10dp"></TextView>
+
+            <TextView
+                android:id="@+id/txtdispo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Disponibilidad"
+                android:textSize="12dp"
+                android:textColor="@color/purple_500"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/DEdisponibilidadEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical|center"
+                android:singleLine="true"
+                android:background="@drawable/edittext_withborder"
+                android:hint="disponibilidad"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/purple_500"
+                android:textSize="10dp"></TextView>
+
+
+>>>>>>> 6cdd590 (last)
             <Button
                 android:id="@+id/DEbtnllamar"
                 android:layout_width="match_parent"
@@ -161,6 +236,25 @@
                 android:textSize="10sp"
                 android:textStyle="bold"></Button>
 
+<<<<<<< HEAD
+=======
+            <Button
+                android:id="@+id/DEbtnpremium"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/button_signup_account"
+                android:padding="10dp"
+                android:text="Volverse Premium"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"></Button>
+
+>>>>>>> 6cdd590 (last)
 
 
         </LinearLayout>

@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 6cdd590 (last)
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +26,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.proyectooxigen.R;
+<<<<<<< HEAD
+=======
+import com.example.proyectooxigen.menus.Premium.bepremium;
+import com.example.proyectooxigen.menus.Premium.premium;
+>>>>>>> 6cdd590 (last)
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,6 +38,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+<<<<<<< HEAD
+=======
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+>>>>>>> 6cdd590 (last)
 
 import java.util.Objects;
 
@@ -42,19 +59,41 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
     String latitud=null;
     String longitud=null;
     Marker currentmarker=null;
+<<<<<<< HEAD
+=======
+    String precio=null;
+    String disponibilidad=null;
+
+    TextView tvnombreEmpresa,tvdireccionEmpresa,tvtelefonoEmpresa,tvlugarEmpresa,tvdisponibilidadEmpresa, tvprecioEmpresa;
+    TextView txtdispo, txttele,txtprecio;
+
+    Button btnllamar,btnpremium;
+
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+>>>>>>> 6cdd590 (last)
 
     GoogleMap map;
 
     private DialogofragmentViewModel mViewModel;
 
     //crear 2 constructores( 1 vacio y uno con todos los datos que se recibirar)
+<<<<<<< HEAD
     public dialogofragment(String nombre,String direccion,String telefonoEmpresa, String departamentoProvincia, String latitud, String longitud ) {
+=======
+    public dialogofragment(String nombre,String direccion,String telefonoEmpresa, String departamentoProvincia, String latitud, String longitud, String precio, String disponibilidad ) {
+>>>>>>> 6cdd590 (last)
         this.nombre=nombre;
         this.direccion=direccion;
         this.telefono=telefonoEmpresa;
         this.departamentoProvincia=departamentoProvincia;
         this.latitud=latitud;
         this.longitud=longitud;
+<<<<<<< HEAD
+=======
+        this.precio=precio;
+        this.disponibilidad=disponibilidad;
+>>>>>>> 6cdd590 (last)
 
     }
     //crear variables para recibir los datos del
@@ -85,11 +124,40 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
         //Declarar variables y asignar
 
         Button btnclose = vista.findViewById(R.id.DEbtnClose);
+<<<<<<< HEAD
         Button btnllamar = vista.findViewById(R.id.DEbtnllamar);
         TextView tvnombreEmpresa = vista.findViewById(R.id.DEnombreEmpresa);
         TextView tvdireccionEmpresa = vista.findViewById(R.id.DEdireccionEmpresa);
         TextView tvtelefonoEmpresa = vista.findViewById(R.id.DEtelefonoEmpresa);
         TextView tvlugarEmpresa = vista.findViewById(R.id.DElugarEmpresa);
+=======
+        btnllamar = vista.findViewById(R.id.DEbtnllamar);
+        btnpremium = vista.findViewById(R.id.DEbtnpremium);
+        tvnombreEmpresa = vista.findViewById(R.id.DEnombreEmpresa);
+        tvdireccionEmpresa = vista.findViewById(R.id.DEdireccionEmpresa);
+        tvtelefonoEmpresa = vista.findViewById(R.id.DEtelefonoEmpresa);
+        tvlugarEmpresa = vista.findViewById(R.id.DElugarEmpresa);
+        tvprecioEmpresa = vista.findViewById(R.id.DEprecioEmpresa);
+        tvdisponibilidadEmpresa= vista.findViewById(R.id.DEdisponibilidadEmpresa);
+        txtdispo= vista.findViewById(R.id.txtdispo);
+        txtprecio= vista.findViewById(R.id.txtprecio);
+        txttele= vista.findViewById(R.id.txttele);
+
+
+
+        txtdispo.setVisibility(View.GONE);
+        txtprecio.setVisibility(View.GONE);
+        txttele.setVisibility(View.GONE);
+
+        tvprecioEmpresa.setVisibility(View.GONE);
+        tvdisponibilidadEmpresa.setVisibility(View.GONE);
+        tvtelefonoEmpresa.setVisibility(View.GONE);
+        btnllamar.setVisibility(View.GONE);
+
+
+        checkispremium(vista);
+
+>>>>>>> 6cdd590 (last)
 
         //inflate maps
         SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragmentmaps);
@@ -98,10 +166,28 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
 
         //Asignar datos
         tvnombreEmpresa.setText(nombre);
+<<<<<<< HEAD
         tvtelefonoEmpresa.setText(telefono);
         tvdireccionEmpresa.setText(direccion);
         tvlugarEmpresa.setText(departamentoProvincia);
 
+=======
+        tvdireccionEmpresa.setText(direccion);
+        tvlugarEmpresa.setText(departamentoProvincia);
+
+        //inicio volverse premium
+        btnpremium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getActivity(), bepremium.class);
+                startActivity(i);
+
+            }
+        });
+        //fin cerrar boton
+
+>>>>>>> 6cdd590 (last)
         //inicio cerrar boton
         btnclose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +213,50 @@ public class dialogofragment extends DialogFragment implements OnMapReadyCallbac
         return builder.create();
     }
 
+<<<<<<< HEAD
+=======
+    private void checkispremium(View vista) {
+
+        fAuth=FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
+
+        String userID = fAuth.getCurrentUser().getUid();
+        DocumentReference df = fStore.collection("Users").document(userID);
+        //extract  the data from the document
+        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Log.d("TAG", "onSuccess: " + documentSnapshot.getData());
+                //identify the user access level
+
+                if (documentSnapshot.getString("Premium").equals("1")) {
+
+                    //activar los botones y textos si son premium
+                    tvtelefonoEmpresa.setText(telefono);
+                    tvprecioEmpresa.setText(precio+" soles");
+                    tvdisponibilidadEmpresa.setText(disponibilidad);
+
+                    txtdispo.setVisibility(View.VISIBLE);
+                    txtprecio.setVisibility(View.VISIBLE);
+                    txttele.setVisibility(View.VISIBLE);
+                    tvprecioEmpresa.setVisibility(View.VISIBLE);
+                    tvdisponibilidadEmpresa.setVisibility(View.VISIBLE);
+                    tvtelefonoEmpresa.setVisibility(View.VISIBLE);
+                    btnllamar.setVisibility(View.VISIBLE);
+                    btnpremium.setVisibility(View.GONE);
+
+
+                } else {
+                    Log.e("Premium: ", "" + documentSnapshot.getString("Premium"));
+                }
+
+            }
+        });
+
+
+    }
+
+>>>>>>> 6cdd590 (last)
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
